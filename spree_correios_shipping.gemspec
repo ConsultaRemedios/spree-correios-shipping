@@ -15,10 +15,10 @@ Gem::Specification.new do |s|
   s.require_path  = 'lib'
   s.requirements  << 'none'
 
-  s.add_dependency 'spree_core', '>= 3.1'
-  s.add_dependency 'correios-frete', '~> 1.10'
+  s.add_dependency 'spree_core', '>= 3.4'
+  s.add_dependency 'correios-frete', '~> 1.12'
 
-  s.add_development_dependency 'database_cleaner', '1.5.2'
-  s.add_development_dependency 'rspec-rails',  '~> 3.5.2'
+  s.add_development_dependency 'database_cleaner', '1.6.2'
+  s.add_development_dependency 'rspec-rails',  '~> 3.7.1'
   s.add_development_dependency 'pry'
 end
