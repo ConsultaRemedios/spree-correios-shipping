@@ -11,14 +11,11 @@ module Spree
 
     def compute_package(package)
       data = cached_info(package).
-        select{ |d| services.include?(d) }.
-       reject{ |k,v| v.error? }.
-       values.
-       min_by(&:valor)
+        select { |d| services.include?(d.tipo) }.
+        reject { |d| d.error? }.
+        min_by(&:valor)
 
       data.valor + preferred_default_box_price
-    rescue
-      nil
     end
 
     private
@@ -57,10 +54,10 @@ module Spree
       request = Correios::Frete::Calculador.new request_attributes
 
       begin
-        response = request.calcular *available_services
+        response = request.calcular(*available_services).values
       rescue
         fake_service = OpenStruct.new(valor: preferred_fallback_amount, prazo_entrega: -1)
-        response = {:pac => fake_service}
+        response = [fake_service]
       end
 
       response
