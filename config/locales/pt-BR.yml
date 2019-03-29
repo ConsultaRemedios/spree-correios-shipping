@@ -11,3 +11,11 @@ pt-BR:
     description: Sedex Hoje
   spree/calculator/correio/sedex:
     description: Sedex
+  spree:
+    default_weight: Peso do objeto (padrão)
+    default_box_weight: Peso da caixa
+    default_box_price: Preço da caixa
+    box_x: comprimento
+    box_y: altura
+    box_z: largura
+    company_code: Código da empresa
